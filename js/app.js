@@ -1,10 +1,11 @@
-const myHeading1 = document.getElementById('myHeading');
-const myButton1 = document.getElementById('myButton')
-const myTextInput1 = document.getElementById('myTextInput')
+const myList = document.getElementsByTagName('li');
 
+for (let i = 0; i < myList.length; i++) {
+  myList[i].style.color = 'purple';
+}
 
+const errorNotPurple1 = document.querySelectorAll('.error-not-purple');
 
-myButton1.addEventListener('click', () => {
-  myHeading1.style.color = myTextInput.value;
-
-});
+for (let i = 0; i < myList.length; i++) {
+  errorNotPurple1[i].style.color = 'red';
+}
