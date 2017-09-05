@@ -1,11 +1,37 @@
-const myList = document.getElementsByTagName('li');
+const varToggleList = document.getElementById('toggleList')
+const listDiv = document.querySelector('.list');
+const descriptionInput = document.querySelector('input.description');
+const descriptionP = document.querySelector('p.description');
+const descriptionButton = document.querySelector('button.description');
+const varAddItemInput = document.querySelector('input.addItemInput')
+const varAddItemButton = document.querySelector('button.addItemButton')
+const varRemoveItemButton = document.querySelector('button.removeItemButton')
 
-for (let i = 0; i < myList.length; i++) {
-  myList[i].style.color = 'purple';
-}
+varToggleList.addEventListener('click', () => {
+  if (listDiv.style.display == 'none') {
+    varToggleList.textContent = 'Hide list'
+    listDiv.style.display = 'block';
+  } else {
+    varToggleList.textContent = 'Show list';
+    listDiv.style.display = 'none';
+  }
+});
 
-const errorNotPurple1 = document.querySelectorAll('.error-not-purple');
+descriptionButton.addEventListener('click', () => {
+  descriptionP.innerHTML = descriptionInput.value + ':';
+  descriptionInput.value = '';
+});
 
-for (let i = 0; i < myList.length; i++) {
-  errorNotPurple1[i].style.color = 'red';
-}
+varAddItemButton.addEventListener('click', () => {
+  let ul = document.getElementsByTagName('ul')[0];
+  let li = document.createElement('li');
+  li.textContent = varAddItemInput.value;
+  ul.appendChild(li);
+  varAddItemInput.value = '';
+});
+
+varRemoveItemButton.addEventListener('click', () => {
+  let ul = document.getElementsByTagName('ul')[0];
+  let li = document.querySelector('li:last-child');
+  ul.removeChild(li);
+})
